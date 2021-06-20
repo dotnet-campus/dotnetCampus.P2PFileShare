@@ -61,7 +61,7 @@ namespace DotnetCampusP2PFileShare.Controllers
         {
             // 和关系维护不相同的是，将会返回更多信息，例如对方的主 IP 是哪个
             // 同时返回已经连接的设备
-            var ip = HttpContext.Connection.RemoteIpAddress.ToString();
+            var ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? string.Empty;
 
             P2PTracer.Info($"收到 {deviceInfo?.DeviceName} {ip} 访问", "PeerLogin");
 
