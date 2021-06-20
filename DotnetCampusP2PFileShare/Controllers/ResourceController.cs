@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Net;
+using DotnetCampusP2PFileShare.ActionFilters;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DotnetCampusP2PFileShare.Core.Downloader;
 using DotnetCampusP2PFileShare.Core.FileStorage;
@@ -28,6 +30,7 @@ namespace DotnetCampusP2PFileShare.Controllers
 
         [HttpPost]
         [Route("Download")]
+        [ServiceFilter(typeof(LocalClientIpCheckActionFilter))]// 只能在本机内访问
         public IActionResult Download([FromBody] DownloadFileInfo downloadFileInfo)
         {
             var p2PResourceDownloadTracer = P2PTracer.GetResourceDownloadTracer(downloadFileInfo.FileId);
@@ -44,6 +47,7 @@ namespace DotnetCampusP2PFileShare.Controllers
 
         [HttpGet]
         [Route("DownloadProcess")]
+        // 获取下载进度？不是本机也允许获取 [ServiceFilter(typeof(LocalClientIpCheckActionFilter))]
         public IActionResult GetDownloadProcess(string id)
         {
             if (_processManager.TryGetProcessReport(id, out var processReport))
@@ -54,8 +58,17 @@ namespace DotnetCampusP2PFileShare.Controllers
             return NotFound();
         }
 
+        /// <summary>
+        /// 将本机的资源上传到 P2P 网络上
+        /// </summary>
+        /// <remarks>
+        /// 本质上只是在当前的 P2P 服务注册就可以了，不需要真的上传文件到某个服务器上
+        /// </remarks>
+        /// <param name="uploadResourceInfo"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("Upload")]
+        [ServiceFilter(typeof(LocalClientIpCheckActionFilter))]// 只能在本机内访问，将本机的资源上传到 P2P 网络上
         public IActionResult Upload([FromBody] UploadResourceInfo uploadResourceInfo)
         {
             // 判断用户上传的文件还是文件夹

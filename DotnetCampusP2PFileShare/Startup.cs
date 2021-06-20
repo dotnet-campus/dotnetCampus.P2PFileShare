@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using DotnetCampusP2PFileShare.ActionFilters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -51,6 +52,7 @@ namespace DotnetCampusP2PFileShare
             services.AddScoped<ResourceDownloader>();
             services.AddScoped<PeerToPeerDownloader>();
 
+            services.AddScoped<LocalClientIpCheckActionFilter>();
 
             var p2PRunningTracer = new P2PRunningTracer(peerFinder);
             DelayTask.AddTask(p2PRunningTracer.ReportStart);
