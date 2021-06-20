@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DotnetCampusP2PFileShare.ActionFilters;
+using Microsoft.AspNetCore.Mvc;
 using DotnetCampusP2PFileShare.Core.Peer;
 
 namespace DotnetCampusP2PFileShare.Controllers
@@ -23,8 +24,14 @@ namespace DotnetCampusP2PFileShare.Controllers
             return AppConfiguration.Current.CurrentDeviceInfo;
         }
 
+        /// <summary>
+        /// 设置当前设备名
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route(nameof(SetDeviceName))]
+        [ServiceFilter(typeof(LocalClientIpCheckActionFilter))]// 只能在本机内设置设备名
         public IActionResult SetDeviceName(string name)
         {
             AppConfiguration.Current.SetDeviceName(name);
