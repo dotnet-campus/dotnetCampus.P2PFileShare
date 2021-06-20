@@ -91,7 +91,11 @@ namespace DotnetCampusP2PFileShare.Core.Net
                 var httpResponseMessage =
                     await httpClient.PostAsync(url, new StringContent(json, Encoding.UTF8, "application/json"));
 
-                node.LastUpdate = DateTime.Now;
+                if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
+                {
+                    // 只有在对方能正确响应的时候，才提升对应的优先级
+                    node.LastUpdate = DateTime.Now;
+                }
                 return (true, httpResponseMessage);
             }
             catch (Exception e) when (e is TaskCanceledException)
