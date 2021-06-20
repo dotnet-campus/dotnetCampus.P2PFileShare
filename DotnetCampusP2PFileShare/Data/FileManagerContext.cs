@@ -13,11 +13,6 @@ namespace DotnetCampusP2PFileShare.Data
             Path.Combine(AppConfiguration.Current.ConfigurationFolder, "FileManger_1_0_1.db");
 
         public DbSet<ResourceModel> ResourceModel { get; set; }
-        //public FileManagerContext (DbContextOptions<FileManagerContext> options)
-        //    : base(options)
-        //{
-
-        //}
 
         /// <summary>
         /// 创建数据库
