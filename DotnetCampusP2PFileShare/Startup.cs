@@ -51,7 +51,6 @@ namespace DotnetCampusP2PFileShare
             services.AddScoped<ResourceDownloader>();
             services.AddScoped<PeerToPeerDownloader>();
 
-            Container.RegisterServiceProvider(services.BuildServiceProvider());
 
             var p2PRunningTracer = new P2PRunningTracer(peerFinder);
             DelayTask.AddTask(p2PRunningTracer.ReportStart);

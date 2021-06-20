@@ -35,7 +35,10 @@ namespace DotnetCampusP2PFileShare
 
             FileManagerContext.Migrate();
 
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+            host.Run();
+
+            Container.RegisterServiceProvider(host.Services);
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args)

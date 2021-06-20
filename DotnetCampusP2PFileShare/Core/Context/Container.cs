@@ -7,7 +7,7 @@ namespace DotnetCampusP2PFileShare.Core
 {
     public static class Container
     {
-        public static void RegisterServiceProvider(ServiceProvider buildServiceProvider)
+        public static void RegisterServiceProvider(IServiceProvider buildServiceProvider)
         {
             BuildServiceProvider = buildServiceProvider;
         }
@@ -51,7 +51,7 @@ namespace DotnetCampusP2PFileShare.Core
 
         private static ConcurrentDictionary<Type, object> ValueList { get; } = new ConcurrentDictionary<Type, object>();
 
-        private static ServiceProvider BuildServiceProvider { get; set; }
+        private static IServiceProvider BuildServiceProvider { get; set; }
 
         //public static ILoggerFactory LoggerFactory { get; } = Microsoft.Extensions.Logging.LoggerFactory.Create(
         //    builder => builder
