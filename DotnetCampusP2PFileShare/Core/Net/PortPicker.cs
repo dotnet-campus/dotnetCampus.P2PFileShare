@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using DotnetCampusP2PFileShare.Core.Context;
 
 namespace DotnetCampusP2PFileShare.Core
@@ -15,21 +16,22 @@ namespace DotnetCampusP2PFileShare.Core
         /// <returns>可用的端口</returns>
         public static int GetNextAvailablePort()
         {
-            var port = Const.DefaultPort;
+            const int port = Const.DefaultPort;
             var ports = GetPortsInUse();
-            while (true)
+            if (ports.All(p => p != port))
             {
-                if (ports.All(p => p != port))
-                {
-                    break;
-                }
-
-                if (++port > IPEndPoint.MaxPort)
-                {
-                    throw new InvalidOperationException("Cannot find any available port.");
-                }
+                return port;
             }
 
+            return GetAvailablePort(IPAddress.Any);
+        }
+
+        private static int GetAvailablePort(IPAddress ip)
+        {
+            TcpListener listener = new TcpListener(ip, 0);
+            listener.Start();
+            int port = ((IPEndPoint)listener.LocalEndpoint).Port;
+            listener.Stop();
             return port;
         }
 
