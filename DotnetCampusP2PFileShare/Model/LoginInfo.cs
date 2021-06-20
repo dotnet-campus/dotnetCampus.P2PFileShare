@@ -3,6 +3,9 @@ using DotnetCampusP2PFileShare.Core.Peer;
 
 namespace DotnetCampusP2PFileShare.Model
 {
+    /// <summary>
+    /// 登录信息
+    /// </summary>
     public class LoginInfo
     {
         /// <summary>
