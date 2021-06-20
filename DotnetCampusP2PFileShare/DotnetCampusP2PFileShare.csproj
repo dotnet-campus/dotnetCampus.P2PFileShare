@@ -25,6 +25,7 @@
   <!--   <Content Include="TrimmerRoots.xml" /> -->
   <!-- </ItemGroup> -->
   <ItemGroup>
+    <PackageReference Include="dotnetCampus.AsyncWorkerCollection" Version="1.6.2" />
     <PackageReference Include="dotnetCampus.Configurations" Version="1.6.8" />
     <PackageReference Include="lindexi.src.MacAddress.Source" Version="1.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.7" />
