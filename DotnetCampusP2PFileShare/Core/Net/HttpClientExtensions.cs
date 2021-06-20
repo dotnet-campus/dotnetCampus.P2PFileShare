@@ -27,9 +27,7 @@ namespace DotnetCampusP2PFileShare.Core.Net
 
         private static (string ip, string port) GetIpFromUrl(string url)
         {
-            //todo 提升性能
-            var regex = new Regex(@"http://(\d+)\.(\d+)\.(\d+)\.(\d+):(\d+)/",
-                RegexOptions.Compiled);
+            var regex = IpRegex;
 
             var match = regex.Match(url);
 
@@ -37,5 +35,8 @@ namespace DotnetCampusP2PFileShare.Core.Net
             var port = match.Groups[5].Value;
             return (ip, port);
         }
+
+        private static readonly Regex IpRegex = new Regex(@"http[s]://(\d+)\.(\d+)\.(\d+)\.(\d+):(\d+)/",
+            RegexOptions.Compiled);
     }
 }
