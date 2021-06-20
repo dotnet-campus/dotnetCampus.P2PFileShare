@@ -12,7 +12,7 @@ namespace DotnetCampusP2PFileShare.Core.Peer
         /// <inheritdoc />
         static DeviceConfiguration()
         {
-            Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            Version = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "1.0.0";
         }
 
         /// <summary>
