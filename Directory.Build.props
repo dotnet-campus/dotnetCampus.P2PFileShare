@@ -1,0 +1,7 @@
+<Project>
+  <Import Project="build\Version.props" />
+  <PropertyGroup>
+    <PackageOutputPath>$(MSBuildThisFileDirectory)bin\$(Configuration)</PackageOutputPath>
+    <OutputPath>$(MSBuildThisFileDirectory)bin\P2P</OutputPath>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,42 @@
+﻿<Window x:Class="DotnetCampusP2PFileShare.Demo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DotnetCampusP2PFileShare.Demo"
+        mc:Ignorable="d"
+        x:Name="Window"
+        Title="P2P" Height="450" Width="800" DataContext="{StaticResource ViewModel}">
+    <Window.Resources>
+        <local:PageControlToVisibilityConvert x:Key="NodePageControlToVisibilityConvert" PageControl="Node" />
+        <local:PageControlToVisibilityConvert x:Key="ResourcePageControlToVisibilityConvert" PageControl="Resource" />
+        <local:PageControlToVisibilityConvert x:Key="DownloadPageControlToVisibilityConvert" PageControl="Download" />
+        <local:PageControlToVisibilityConvert x:Key="UploadPageControlToVisibilityConvert" PageControl="Upload" />
+    </Window.Resources>
+    <Grid>
+        <Grid>
+            <local:NodePage
+                Visibility="{Binding ElementName=Window,Path=PageControl,Converter={StaticResource NodePageControlToVisibilityConvert}}" />
+            <local:DownloadPage
+                Visibility="{Binding ElementName=Window,Path=PageControl,Converter={StaticResource DownloadPageControlToVisibilityConvert}}"
+                PageClosed="OnPageClosed" />
+            <local:UploadPage
+                Visibility="{Binding ElementName=Window,Path=PageControl,Converter={StaticResource UploadPageControlToVisibilityConvert}}"
+                PageClosed="OnPageClosed" />
+            <Grid
+                Visibility="{Binding ElementName=Window,Path=PageControl,Converter={StaticResource NodePageControlToVisibilityConvert}}">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                    <Button Margin="10,10,10,10" Content="下载" Click="Download_OnClick" />
+                    <Button Margin="10,10,10,10" Content="注册资源" Click="Upload_OnClick" />
+                </StackPanel>
+            </Grid>
+
+            <Grid
+                Visibility="{Binding ElementName=Window,Path=PageControl,Converter={StaticResource ResourcePageControlToVisibilityConvert}}">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button Margin="10,10,10,10" Content="升级资源" Click="Button_OnClick" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

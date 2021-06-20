@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\DotnetCampusP2PFileShare\Core\Peer\Device_\DeviceInfo.cs" Link="DeviceInfo.cs" />
+    <Compile Include="..\DotnetCampusP2PFileShare\Core\Peer\Device_\Node.cs" Link="Node.cs" />
+    <Compile Include="..\DotnetCampusP2PFileShare\Model\ConcreteTypeConverter.cs" Link="ConcreteTypeConverter.cs" />
+  
+    <Compile Include="..\DotnetCampusP2PFileShare.SDK\Context\DownloadFileInfo.cs" Link="Model\DownloadFileInfo.cs" />
+    <Compile Include="..\DotnetCampusP2PFileShare.SDK\Upload\UploadResourceInfo.cs" Link="Model\UploadResourceInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotnetCampusP2PFileShare.SDK\DotnetCampusP2PFileShare.SDK.csproj" />
+  </ItemGroup>
+
+</Project>
