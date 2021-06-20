@@ -4,6 +4,9 @@
 
 提供可执行文件和 SDK 和二次开发能力
 
+## 进度
+
+开发中……
 
 ## DotnetCampusP2PFileShare.SDK
 
