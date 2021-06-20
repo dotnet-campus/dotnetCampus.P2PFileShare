@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using lindexi.src;
 using Newtonsoft.Json;
 using DotnetCampusP2PFileShare.Core.Peer;
+using TraceLevel = System.Diagnostics.TraceLevel;
 
 namespace DotnetCampusP2PFileShare.P2PLogging
 {
