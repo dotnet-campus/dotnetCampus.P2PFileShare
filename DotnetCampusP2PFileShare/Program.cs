@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -23,7 +23,7 @@ namespace DotnetCampusP2PFileShare
 
             if (!created)
             {
-                Console.WriteLine("ÒÑ¾­ÓĞ P2P ·şÎñÆô¶¯");
+                Console.WriteLine("å·²ç»æœ‰ P2P æœåŠ¡å¯åŠ¨");
                 Task.Delay(TimeSpan.FromSeconds(1));
 #if !DEBUG
                 return;
@@ -84,14 +84,14 @@ namespace DotnetCampusP2PFileShare
         }
 
         /// <summary>
-        /// ³¢ÊÔÖØÆô
+        /// å°è¯•é‡å¯
         /// </summary>
         private static void Rerun()
         {
             var hostApplicationLifetime = Container.Get<IHostApplicationLifetime>();
             hostApplicationLifetime.StopApplication();
 
-            //todo ×Ô¶¯ÖØÆô
+            //todo è‡ªåŠ¨é‡å¯
         }
 
         private static int FindPort()

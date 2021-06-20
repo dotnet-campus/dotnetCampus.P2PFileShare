@@ -16,7 +16,7 @@ namespace DotnetCampusP2PFileShare.Demo
         {
             InitializeComponent();
 
-            FileModel = (FileModel) DataContext;
+            FileModel = (FileModel)DataContext;
         }
 
         public FileModel FileModel { get; }

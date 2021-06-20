@@ -13,7 +13,7 @@ using TraceLevel = System.Diagnostics.TraceLevel;
 
 namespace DotnetCampusP2PFileShare.P2PLogging
 {
-    interface ILogTracer: ITracer
+    interface ILogTracer : ITracer
     {
 
     }
@@ -27,7 +27,7 @@ namespace DotnetCampusP2PFileShare.P2PLogging
     {
         public void ReportDiagnosis(string version, int i, string deviceInfoDeviceId, string macList, string sessionId, string businessType, string secondType, string thirdType, string forthType, string message, string description, int i1, int i2, object o)
         {
-            
+
         }
     }
 
@@ -92,7 +92,7 @@ namespace DotnetCampusP2PFileShare.P2PLogging
 
             const string businessType = "DotnetCampusP2PFileShare";
 
-            var p2PTracer = ((P2PTracer) Instance);
+            var p2PTracer = ((P2PTracer)Instance);
             var secondType = type;
 
             p2PTracer.Reporter.ReportDiagnosis(version, 0, deviceInfo.DeviceId, p2PTracer.MacList,
@@ -108,10 +108,10 @@ namespace DotnetCampusP2PFileShare.P2PLogging
             Report(message, type, description: description);
         }
 
- 
-      
 
-  
+
+
+
 
         private readonly Lazy<Reporter> _reporter;
 
@@ -135,7 +135,8 @@ namespace DotnetCampusP2PFileShare.P2PLogging
         private Reporter Reporter => _reporter.Value;
 
         private static ConcurrentDictionary<string, WeakReference<P2PResourceUploadTracer>>
-            P2PResourceUploadTracerList { get; } =
+            P2PResourceUploadTracerList
+        { get; } =
             new ConcurrentDictionary<string, WeakReference<P2PResourceUploadTracer>>();
 
         private static StringBuilder ExceptionToString(Exception exception)

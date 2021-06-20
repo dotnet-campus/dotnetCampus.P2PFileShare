@@ -239,7 +239,7 @@ namespace DotnetCampusP2PFileShare.SDK.Download
                     var s = await httpClient.GetStringAsync(
                         $"{P2PProvider.P2PHost}api/Resource/DownloadProcess?id={processReport.Id}");
                     var process = Json.Parse<ProcessReport>(s);
-                    progress.Report(new DownloadProgress((long) process.Process, (long) process.MaxProcess));
+                    progress.Report(new DownloadProgress((long)process.Process, (long)process.MaxProcess));
 
                     if (processReport.Process < 0)
                     {
@@ -325,8 +325,8 @@ namespace DotnetCampusP2PFileShare.SDK.Download
 
                     if (success)
                     {
-                        progress.Report(new DownloadProgress((long) processReport.Process,
-                            (long) processReport.MaxProcess));
+                        progress.Report(new DownloadProgress((long)processReport.Process,
+                            (long)processReport.MaxProcess));
 
                         //GetDownloadProcess(progress, processReport, downloadCompletionSource, httpClient);
 

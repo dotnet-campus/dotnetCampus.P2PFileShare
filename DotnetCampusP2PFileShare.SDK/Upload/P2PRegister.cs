@@ -78,7 +78,7 @@ namespace DotnetCampusP2PFileShare.SDK.Upload
             //}
 
             // 为什么需要用这么不清真方法，因为原来方法会让进程退出
-            var httpWebRequest = (HttpWebRequest) WebRequest.Create(url);
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
@@ -87,7 +87,7 @@ namespace DotnetCampusP2PFileShare.SDK.Upload
                 streamWriter.Write(json);
             }
 
-            var httpResponse = (HttpWebResponse) httpWebRequest.GetResponse();
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
             return Task.FromResult(httpResponse);
         }
     }

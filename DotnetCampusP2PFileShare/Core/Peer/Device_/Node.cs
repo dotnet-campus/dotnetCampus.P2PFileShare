@@ -26,7 +26,7 @@ namespace DotnetCampusP2PFileShare.Core.Peer
         /// </summary>
         public DateTime LastUpdate { set; get; }
 
-    
+
 
         [JsonConverter(typeof(ConcreteTypeConverter<DeviceInfo>))]
         public IReadOnlyDeviceInfo DeviceInfo { set; get; }

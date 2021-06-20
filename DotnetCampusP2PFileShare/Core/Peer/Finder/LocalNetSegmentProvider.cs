@@ -56,7 +56,7 @@ namespace DotnetCampusP2PFileShare.Core.Peer.Finder
         {
             if (obj != null && obj.GetType() == GetType())
             {
-                return Equals((LocalNetSegmentProvider) obj);
+                return Equals((LocalNetSegmentProvider)obj);
             }
 
             return false;
@@ -70,7 +70,7 @@ namespace DotnetCampusP2PFileShare.Core.Peer.Finder
         /// <inheritdoc />
         public override int GetHashCode()
         {
-            return (int) IpEnd;
+            return (int)IpEnd;
         }
 
         private UInt32 IpNext { set; get; }
@@ -95,7 +95,7 @@ namespace DotnetCampusP2PFileShare.Core.Peer.Finder
             }
             else
             {
-                var ip = (uint) ((IpEnd - IpNext) * Random.NextDouble()) + IpNext;
+                var ip = (uint)((IpEnd - IpNext) * Random.NextDouble()) + IpNext;
                 var ipAddress = ConvertToIp(ip);
                 return ipAddress;
             }
