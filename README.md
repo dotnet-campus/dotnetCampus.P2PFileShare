@@ -4,6 +4,7 @@
 
 提供可执行文件和 SDK 和二次开发能力
 
+
 ## DotnetCampusP2PFileShare.SDK
 
 ### 打包
@@ -23,3 +24,9 @@
 ## 埋点
 
 请看 EventId 的内容
+
+## 开源
+
+已开源在 https://github.com/dotnet-campus/dotnetCampus.P2PFileShare
+
+请以 GitHub 上开源为主
