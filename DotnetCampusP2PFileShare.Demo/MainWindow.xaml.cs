@@ -24,7 +24,7 @@ namespace DotnetCampusP2PFileShare.Demo
 
             //ResourceIdText.Text = Guid.NewGuid().ToString("N");
 
-            ViewModel = (ViewModel) DataContext;
+            ViewModel = (ViewModel)DataContext;
 
             Init();
 
@@ -38,7 +38,7 @@ namespace DotnetCampusP2PFileShare.Demo
 
         public PageControl PageControl
         {
-            get => (PageControl) GetValue(PageControlProperty);
+            get => (PageControl)GetValue(PageControlProperty);
             set => SetValue(PageControlProperty, value);
         }
 

@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.IO;
 using System.Reflection;
 using dotnetCampus.Configurations;
@@ -8,7 +8,7 @@ using DotnetCampusP2PFileShare.Core.Peer;
 namespace DotnetCampusP2PFileShare
 {
     /// <summary>
-    /// Ó¦ÓÃÉèÖÃ
+    /// åº”ç”¨è®¾ç½®
     /// </summary>
     public class AppConfiguration
     {
@@ -35,12 +35,12 @@ namespace DotnetCampusP2PFileShare
         public IReadOnlyDeviceInfo CurrentDeviceInfo { private set; get; }
 
         /// <summary>
-        /// Ó¦ÓÃËùÔÚµÄÎÄ¼ş¼Ğ
+        /// åº”ç”¨æ‰€åœ¨çš„æ–‡ä»¶å¤¹
         /// </summary>
         public string ExeFolder { get; }
 
         /// <summary>
-        /// ÅäÖÃÎÄ¼ş
+        /// é…ç½®æ–‡ä»¶
         /// </summary>
         public string ConfigurationFolder { get; }
 
@@ -48,7 +48,7 @@ namespace DotnetCampusP2PFileShare
 
         public void SetDeviceName(string name)
         {
-            // ²»¿¼ÂÇ¶àÏß³ÌÎÊÌâ£¬ºÜÉÙÓĞÓÃ»§²»¶ÏÉèÖÃ
+            // ä¸è€ƒè™‘å¤šçº¿ç¨‹é—®é¢˜ï¼Œå¾ˆå°‘æœ‰ç”¨æˆ·ä¸æ–­è®¾ç½®
             var deviceConfiguration = AppConfigurator.Of<DeviceConfiguration>();
             deviceConfiguration.DeviceName = name;
 

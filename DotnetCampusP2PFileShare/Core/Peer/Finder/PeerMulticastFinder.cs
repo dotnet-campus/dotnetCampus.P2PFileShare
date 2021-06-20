@@ -82,7 +82,7 @@ namespace DotnetCampusP2PFileShare.Core.Peer.Finder
                 {
                     try
                     {
-                        var multicastFinder = (PeerMulticastFinder) s;
+                        var multicastFinder = (PeerMulticastFinder)s;
 
                         var (ip, port) = IpRegex.Parse(e);
 

@@ -16,12 +16,12 @@ namespace DotnetCampusP2PFileShare.Core
         {
             if (ValueList.TryGetValue(typeof(T), out var value))
             {
-                return (T) value;
+                return (T)value;
             }
 
             if (LazyDictionary.TryGetValue(typeof(T), out var lazy))
             {
-                return (T) lazy.Value;
+                return (T)lazy.Value;
             }
 
             return default;

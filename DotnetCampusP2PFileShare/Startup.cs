@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.IO;
 using System.Threading.Tasks;
 using DotnetCampusP2PFileShare.ActionFilters;
@@ -58,9 +58,9 @@ namespace DotnetCampusP2PFileShare
             DelayTask.AddTask(p2PRunningTracer.ReportStart);
             DelayTask.AddTask(LogFileManager.CleanLogFile, TimeSpan.FromMinutes(10));
             DelayTask.AddTask(p2PRunningTracer.ReportDevice,
-                // ´ó¸ÅÉ¨ÃèÍø¶ÎµÄÊ±¼äÔÚ30·ÖÖÓ¶¼ÄÜÉ¨Íê£¬Ò²¾ÍÊÇ 255 ¸öIP¼ÙÉèÒ»·ÖÖÓ10¸öIPÄÇÃ´Ò²¾ÍÊÇ25·ÖÖÓÉ¨Íê
+                // å¤§æ¦‚æ‰«æç½‘æ®µçš„æ—¶é—´åœ¨30åˆ†é’Ÿéƒ½èƒ½æ‰«å®Œï¼Œä¹Ÿå°±æ˜¯ 255 ä¸ªIPå‡è®¾ä¸€åˆ†é’Ÿ10ä¸ªIPé‚£ä¹ˆä¹Ÿå°±æ˜¯25åˆ†é’Ÿæ‰«å®Œ
                 TimeSpan.FromMinutes(30));
-            // ×Ô¶¯¸üÐÂ
+            // è‡ªåŠ¨æ›´æ–°
             DelayTask.AddTask(new AutoUpdate().Update, TimeSpan.FromMinutes(10));
             //RunTimeTest.AddTest(() => { DelayTask.AddTask(p2PRunningTracer.ReportDevice); });
 

@@ -144,9 +144,9 @@ namespace DotnetCampusP2PFileShare.Core.Peer
         private ConcurrentDictionary<string, Node> KnownNodeList { get; } = new ConcurrentDictionary<string, Node>();
 
 
-        internal LocalIpProvider LocalIpProvider { get; }=new LocalIpProvider();
+        internal LocalIpProvider LocalIpProvider { get; } = new LocalIpProvider();
 
-       
+
 
         //private async Task PingIp(string ip, string port)
         //{
@@ -304,6 +304,6 @@ namespace DotnetCampusP2PFileShare.Core.Peer
             return currentNodeList.ToList();
         }
 
-      
+
     }
 }

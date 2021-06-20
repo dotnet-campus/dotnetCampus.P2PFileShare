@@ -40,7 +40,7 @@ namespace DotnetCampusP2PFileShare.SDK.Download
     {
         public DownloadProgress(long processProcess, long processMaxProcess)
         {
-            
+
         }
     }
 }

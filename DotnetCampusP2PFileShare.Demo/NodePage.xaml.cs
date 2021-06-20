@@ -14,7 +14,7 @@ namespace DotnetCampusP2PFileShare.Demo
         {
             InitializeComponent();
 
-            NodeModel = (NodeModel) DataContext;
+            NodeModel = (NodeModel)DataContext;
         }
 
         public NodeModel NodeModel { get; }
