@@ -17,6 +17,6 @@ namespace DotnetCampusP2PFileShareTracer.Data
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<Node> Node { get; set; }
+        public DbSet<Node> Node { get; set; } = null!;
     }
 }

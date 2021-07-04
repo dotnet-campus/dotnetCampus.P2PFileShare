@@ -3,7 +3,7 @@
 namespace DotnetCampusP2PFileShareTracer.Controllers
 {
     /// <summary>
-    /// 用于给鲸云访问
+    /// 用于喂狗
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]

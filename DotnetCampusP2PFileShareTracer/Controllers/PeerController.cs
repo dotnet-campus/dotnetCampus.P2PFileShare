@@ -24,7 +24,8 @@ namespace DotnetCampusP2PFileShareTracer.Controllers
         public IActionResult GetDevice()
         {
             var ipList = new Dictionary<string, List<Node>>();
-
+            var count = 0;
+            const int maxCount = 1000;
             foreach (var node in _context.Node)
             {
                 if (ipList.ContainsKey(node.MainIp))
@@ -34,6 +35,12 @@ namespace DotnetCampusP2PFileShareTracer.Controllers
                 else
                 {
                     ipList[node.MainIp] = new List<Node>() { node };
+                }
+
+                count++;
+                if (count > maxCount)
+                {
+                    break;
                 }
             }
 
@@ -53,6 +60,12 @@ namespace DotnetCampusP2PFileShareTracer.Controllers
             return Ok(deviceList);
         }
 
+        /// <summary>
+        /// 获取当前局域网的所有伙伴，需要传入客户端的本机内网 ip 地址
+        /// </summary>
+        /// 核心就是所有的设备都向服务器注册自己的内网 ip 地址，这样所有的设备就可以从服务器拿到相同局域网内的设备的内网 ip 地址
+        /// <param name="localIp"></param>
+        /// <returns>返回此局域网内所有已注册的设备的内网 ip 地址</returns>
         [HttpGet("{localIp}")]
         public IActionResult GetPeer(string localIp)
         {
@@ -99,7 +112,8 @@ namespace DotnetCampusP2PFileShareTracer.Controllers
 
         private string GetIp()
         {
-            var ip = HttpContext.Connection.RemoteIpAddress.ToString();
+            // 根据业务一定存在 RemoteIpAddress 的值
+            var ip = HttpContext.Connection.RemoteIpAddress!.ToString();
 
             if (TryGetUserIpFromFrp(HttpContext.Request, out var frp))
             {
