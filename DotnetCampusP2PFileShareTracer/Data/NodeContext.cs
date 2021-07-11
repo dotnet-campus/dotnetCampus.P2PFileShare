@@ -4,7 +4,7 @@ namespace DotnetCampusP2PFileShareTracer.Data
 {
     public class NodeContext : DbContext
     {
-        public NodeContext (DbContextOptions<NodeContext> options)
+        public NodeContext(DbContextOptions<NodeContext> options)
             : base(options)
         {
         }
